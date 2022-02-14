@@ -1,0 +1,24 @@
+{
+  "name": "woof-day-care",
+  "version": "1.0.0",
+  "description": "Doggy day care app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdelleMcateer/woof-day-care.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdelleMcateer/woof-day-care/issues"
+  },
+  "homepage": "https://github.com/AdelleMcateer/woof-day-care#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.2.1",
+    "nodemon": "^2.0.15"
+  }
+}
