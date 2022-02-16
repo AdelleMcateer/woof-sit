@@ -17,11 +17,21 @@ code {
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
-
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+}
 h1 {
   font-size: 30px;
   font-weight: bold;
   color: orangered;
+}
+p {
+  margin: 5px !important;
+  text-align: left;
+  padding: 0;
 }
 .header {
   padding: 10px;
@@ -29,4 +39,39 @@ h1 {
 
 .content {
   min-height: 90vh;
+}
+
+/* UI purposes only*/
+
+.sitter {
+  border-radius: 5px;
+  margin-top: 100px;
+  height: 160px;
+  transition: 0.3s;
+}
+
+.sitter:hover {
+  height: 220px;
+}
+.sitter:hover > .sitter-content {
+  opacity: 1;
+  transform: translateY(-40px);
+}
+.sitterimg {
+  height: 180px;
+  width: auto;
+  border-radius: 5px;
+  transform: translateY(-50px);
+}
+.sitter-content {
+  transform: translateY(-200px);
+  opacity: 0;
+  transition: 00.3s;
+}
+
+.btn1 {
+  box-shadow: none !important;
+  background-color: white !important;
+  color: orangered !important;
+  border: 1px solid orangered !important;
 }

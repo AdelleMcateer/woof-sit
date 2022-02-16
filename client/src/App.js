@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import BookingSitter from './pages/BookingSitter';
+import 'antd/dist/antd.css';
 
 
 function App() {
