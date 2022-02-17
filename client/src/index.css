@@ -7,12 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: azure;
 }
-
+body,
+html {
+  overflow-x: hidden !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 .bs1 {
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
@@ -21,7 +23,7 @@ code {
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 1;
+  z-index: 9999;
 }
 h1 {
   font-size: 30px;
@@ -35,6 +37,14 @@ p {
 }
 .header {
   padding: 10px;
+}
+.header .ant-btn {
+  box-shadow: none !important;
+  background-color: white !important;
+  color: orangered !important;
+  border: 1px solid orangered !important;
+  padding: 5px 15px !important;
+  outline: none !important;
 }
 
 .content {

@@ -1,44 +1,75 @@
-import React from 'react'
-import { Row, Col, Form, Input} from 'antd'
-import {Link} from 'react-router-dom'
+import React from "react";
+import { Row, Col, Form, Input } from "antd";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { userRegister } from "../redux/actions/userActions";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+import Spinner from "../components/Spinner";
+// ..
+AOS.init();
 
 function Register() {
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.alertsReducer);
+
+  function onFinish(values) {
+    dispatch(userRegister(values));
+    console.log(values);
+  }
+
   return (
-    <div className='login'>
-
-        <Row gutter={16} className='d-flex aligh-items-center' >
-
-          <Col lg={16} style={{positon: 'relative'}}>
-            <img src='https://cdn.pixabay.com/photo/2019/04/10/23/51/dog-4118585_960_720.jpg'></img>
-            <h1 className='login-logo'>Woof Doggy Day Care</h1>
-          </Col>
-          <Col lg={8} className='text-left p-5'>
-          <Form layout='vertical' className='login-form p-5'>
+    <div className="login">
+      {loading && <Spinner />}
+      <Row gutter={16} className="d-flex aligh-items-center">
+        <Col lg={16} style={{ positon: "relative" }}>
+          <img
+            data-aos="slide-left"
+            data-aos-duration="1500"
+            src="https://cdn.pixabay.com/photo/2019/04/10/23/51/dog-4118585_960_720.jpg"
+          ></img>
+          <h1 className="login-logo">WoofSit</h1>
+        </Col>
+        <Col lg={8} className="text-left p-5">
+          <Form
+            layout="vertical"
+            className="login-form p-5"
+            onFinish={onFinish}
+          >
             <h1>Register</h1>
             <hr />
-            <Form.Item name='username' label='Username' rules={[{required: true}]}>
+            <Form.Item
+              name="username"
+              label="Username"
+              rules={[{ required: true }]}
+            >
               <Input></Input>
             </Form.Item>
-            <Form.Item name='password' label='Password' rules={[{required: true}]}>
+            <Form.Item
+              name="password"
+              label="Password"
+              rules={[{ required: true }]}
+            >
               <Input></Input>
             </Form.Item>
-            <Form.Item name='cpassword' label='Confrim Password' rules={[{required: true}]}>
+            <Form.Item
+              name="cpassword"
+              label="Confrim Password"
+              rules={[{ required: true }]}
+            >
               <Input></Input>
             </Form.Item>
 
-            <button className='btn1 mt-2 mb-3'>Register</button>
-            
+            <button className="btn1 mt-2 mb-3">Register</button>
+
             <br />
-           
-            <Link to='/login'>Click here to Login</Link>
-            
+
+            <Link to="/login">Click here to Login</Link>
           </Form>
-          </Col>
-
-        </Row>
-
+        </Col>
+      </Row>
     </div>
-  )
+  );
 }
 
-export default Register
+export default Register;
