@@ -1,7 +1,7 @@
 {
-  "name": "woof-day-care",
+  "name": "woofsit",
   "version": "1.0.0",
-  "description": "Doggy day care app",
+  "description": "Dog sitting app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
