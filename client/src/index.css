@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
-
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif !important;
@@ -19,6 +18,9 @@ code {
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+.ant-row {
+  margin: 0 20 !important;
+}
 .spinner {
   position: absolute;
   top: 50%;
@@ -32,8 +34,21 @@ h1 {
 }
 p {
   margin: 5px !important;
-  text-align: left;
   padding: 0;
+}
+.btn1 {
+  box-shadow: none !important;
+  background-color: white !important;
+  color: orangered !important;
+  border: 1px solid orangered !important;
+  padding: 5px 15px !important;
+  outline: none !important;
+}
+.bt1:focus {
+  border: none;
+}
+button {
+  padding: 3px 10px !important;
 }
 .header {
   padding: 10px;
@@ -46,20 +61,21 @@ p {
   padding: 5px 15px !important;
   outline: none !important;
 }
-
 .content {
   min-height: 90vh;
 }
+.footer {
+  background-color: aliceblue;
+  padding: 10px;
+}
 
 /* UI purposes only*/
-
 .sitter {
   border-radius: 5px;
   margin-top: 100px;
   height: 160px;
   transition: 0.3s;
 }
-
 .sitter:hover {
   height: 220px;
 }
@@ -76,21 +92,7 @@ p {
 .sitter-content {
   transform: translateY(-200px);
   opacity: 0;
-  transition: 00.3s;
-}
-.btn1 {
-  box-shadow: none !important;
-  background-color: white !important;
-  color: orangered !important;
-  border: 1px solid orangered !important;
-  padding: 5px 15px !important;
-  outline: none !important;
-}
-.button {
-  padding: 5px 15px !important;
-}
-.btn1:focus {
-  border: none !important;
+  transition: 0.3s;
 }
 .login {
   background-color: black;
@@ -107,7 +109,7 @@ p {
 }
 .login-form input {
   background-color: #333333 !important;
-  border: none I !important;
+  border: none !important;
   color: white;
   opacity: 0.5;
 }
@@ -115,13 +117,19 @@ p {
   position: absolute;
   left: 0;
   right: 0;
-  top: 65%;
+  top: 60%;
   bottom: 50%;
   transform: translateY(-50%, -50%);
-  font-size: 40px;
-  opacity: 0.5 !important;
+  font-size: 45px;
+  opacity: 0.2 !important;
 }
 .login a {
   color: white !important;
   opacity: 0.5;
+}
+
+.sitterimg2 {
+  height: 400px;
+  border-radius: 10px;
+  width: auto;
 }
