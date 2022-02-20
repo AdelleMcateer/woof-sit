@@ -8,6 +8,7 @@ import { bookSitter } from "../redux/actions/bookingActions";
 import moment from "moment";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
+import StripeCheckout from "react-stripe-checkout";
 
 const { RangePicker } = DatePicker;
 
@@ -48,6 +49,23 @@ function BookingSitter({ match }) {
 
   function bookNow() {
     const reqObj = {
+      user: JSON.parse(localStorage.getItem("user"))._id,
+      sitter: sitter._id,
+      totalHours,
+      totalAmount,
+      foodRequired: food,
+      bookedTimeSlots: {
+        from,
+        to,
+      },
+    };
+
+    dispatch(bookSitter(reqObj));
+  }
+
+  function onToken(token) {
+    const reqObj = {
+      token,
       user: JSON.parse(localStorage.getItem("user"))._id,
       sitter: sitter._id,
       totalHours,
@@ -133,9 +151,15 @@ function BookingSitter({ match }) {
                 Total Amount : <b>{totalAmount}</b>
               </h3>
 
-              <button className="btn1" onClick={bookNow}>
-                Book Now
-              </button>
+              <StripeCheckout
+                shippingAddress
+                token={onToken}
+                currency="eur"
+                amount={totalAmount * 100}
+                stripeKey="pk_test_F1HiMvfTXtZ6JBs1Q8nzIfz7"
+              >
+                <button className="btn1">Book Now</button>
+              </StripeCheckout>
             </div>
           )}
         </Col>
