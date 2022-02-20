@@ -1,9 +1,10 @@
-import { Col, Row, Divider, DatePicker } from "antd";
+import { Col, Row, Divider, DatePicker, Checkbox } from "antd";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
 import Spinner from "../components/Spinner";
 import { getAllSitters } from "../redux/actions/sittersActions";
+import { bookSitter } from "../redux/actions/bookingActions";
 import moment from "moment";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
@@ -18,6 +19,8 @@ function BookingSitter({ match }) {
   const [from, setFrom] = useState();
   const [to, setTo] = useState();
   const [totalHours, setTotalHours] = useState();
+  const [food, setfood] = useState(false);
+  const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
     if (sitters.length == 0) {
@@ -27,12 +30,35 @@ function BookingSitter({ match }) {
     }
   }, [sitters]);
 
+  useEffect(() => {
+    setTotalAmount(totalHours * sitter.ratePerHour);
+    if (food) {
+      setTotalAmount(totalAmount + 1 * totalHours);
+    }
+  }, [food, totalHours]);
+
   //Passing times to array
   function selectTimeSlots(values) {
     setFrom(moment(values[0]).format("MMM DD yyy HH:mm"));
     setTo(moment(values[1]).format("MMM DD yyy HH:mm"));
 
     setTotalHours(values[1].diff(values[0], "hours"));
+  }
+
+  function bookNow() {
+    const reqObj = {
+      user: JSON.parse(localStorage.getItem("user"))._id,
+      sitter: sitter._id,
+      totalHours,
+      totalAmount,
+      foodRequired: food,
+      bookedTimeSlots: {
+        from,
+        to,
+      },
+    };
+
+    dispatch(bookSitter(reqObj));
   }
 
   return (
@@ -71,7 +97,31 @@ function BookingSitter({ match }) {
             format="MMM-DD yyyy HH:mm"
             onChange={selectTimeSlots}
           />
-          <div> {totalHours}</div>
+          <div>
+            <p>
+              Total Hours : <b>{totalHours}</b>{" "}
+            </p>
+            <p>
+              Rate Per Hour : <b>{sitter.ratePerHour}</b>{" "}
+            </p>
+            <Checkbox
+              onChange={(e) => {
+                if (e.target.checked) {
+                  setfood(true);
+                } else {
+                  setfood(false);
+                }
+              }}
+            >
+              Food Required
+            </Checkbox>
+            <h3>
+              Total Amount : <b>{totalAmount}</b>
+            </h3>
+            <button className="btn1" onClick={{ bookNow }}>
+              Book Now
+            </button>
+          </div>
         </Col>
       </Row>
     </DefaultLayout>
