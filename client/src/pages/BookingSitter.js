@@ -1,4 +1,4 @@
-import { Col, Row, Divider, DatePicker, Checkbox } from "antd";
+import { Col, Row, Divider, DatePicker, Checkbox, Modal } from "antd";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
@@ -21,6 +21,7 @@ function BookingSitter({ match }) {
   const [totalHours, setTotalHours] = useState();
   const [food, setfood] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (sitters.length == 0) {
@@ -98,13 +99,24 @@ function BookingSitter({ match }) {
             onChange={selectTimeSlots}
           />
 
+          <br />
+
+          <button
+            className="btn1 mt-2"
+            onClick={() => {
+              setShowModal(true);
+            }}
+          >
+            See Booked Time Slots
+          </button>
+
           {from && to && (
             <div>
               <p>
-                Total Hours : <b>{totalHours}</b>{" "}
+                Total Hours : <b>{totalHours}</b>
               </p>
               <p>
-                Rate Per Hour : <b>{sitter.ratePerHour}</b>{" "}
+                Rate Per Hour : <b>{sitter.ratePerHour}</b>
               </p>
               <Checkbox
                 onChange={(e) => {
@@ -120,12 +132,43 @@ function BookingSitter({ match }) {
               <h3>
                 Total Amount : <b>{totalAmount}</b>
               </h3>
+
               <button className="btn1" onClick={bookNow}>
                 Book Now
               </button>
             </div>
           )}
         </Col>
+
+        {sitter.name && (
+          <Modal
+            visible={showModal}
+            closable={false}
+            footer={false}
+            title="Booked time slots"
+          >
+            <div className="p-2">
+              {sitter.bookedTimeSlots.map((slot) => {
+                return (
+                  <button className="btn1 mt-2">
+                    {slot.from} - {slot.to}
+                  </button>
+                );
+              })}
+
+              <div className="text-right mt-5">
+                <button
+                  className="btn1"
+                  onClick={() => {
+                    setShowModal(false);
+                  }}
+                >
+                  CLOSE
+                </button>
+              </div>
+            </div>
+          </Modal>
+        )}
       </Row>
     </DefaultLayout>
   );
