@@ -11,7 +11,6 @@ router.post("/booksitter", async (req, res) => {
 
     //Linking bookied time slots to sitter
     const sitter = await Sitter.findOne({ _id: req.body.sitter });
-    console.log(req.body.sitter);
     sitter.bookedTimeSlots.push(req.body.bookedTimeSlots);
 
     await sitter.save();

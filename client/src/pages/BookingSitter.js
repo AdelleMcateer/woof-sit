@@ -97,31 +97,34 @@ function BookingSitter({ match }) {
             format="MMM-DD yyyy HH:mm"
             onChange={selectTimeSlots}
           />
-          <div>
-            <p>
-              Total Hours : <b>{totalHours}</b>{" "}
-            </p>
-            <p>
-              Rate Per Hour : <b>{sitter.ratePerHour}</b>{" "}
-            </p>
-            <Checkbox
-              onChange={(e) => {
-                if (e.target.checked) {
-                  setfood(true);
-                } else {
-                  setfood(false);
-                }
-              }}
-            >
-              Food Required
-            </Checkbox>
-            <h3>
-              Total Amount : <b>{totalAmount}</b>
-            </h3>
-            <button className="btn1" onClick={bookNow}>
-              Book Now
-            </button>
-          </div>
+
+          {from && to && (
+            <div>
+              <p>
+                Total Hours : <b>{totalHours}</b>{" "}
+              </p>
+              <p>
+                Rate Per Hour : <b>{sitter.ratePerHour}</b>{" "}
+              </p>
+              <Checkbox
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setfood(true);
+                  } else {
+                    setfood(false);
+                  }
+                }}
+              >
+                Food Required
+              </Checkbox>
+              <h3>
+                Total Amount : <b>{totalAmount}</b>
+              </h3>
+              <button className="btn1" onClick={bookNow}>
+                Book Now
+              </button>
+            </div>
+          )}
         </Col>
       </Row>
     </DefaultLayout>
