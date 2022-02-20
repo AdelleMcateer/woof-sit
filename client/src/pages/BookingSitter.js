@@ -118,7 +118,7 @@ function BookingSitter({ match }) {
             <h3>
               Total Amount : <b>{totalAmount}</b>
             </h3>
-            <button className="btn1" onClick={{ bookNow }}>
+            <button className="btn1" onClick={bookNow}>
               Book Now
             </button>
           </div>

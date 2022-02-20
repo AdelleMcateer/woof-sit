@@ -5,7 +5,7 @@ export const bookSitter = (reqObj) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-    const response = await axios.post("/api/bookings/booksitter");
+    const response = await axios.post("/api/bookings/booksitter", reqObj);
     dispatch({ type: "LOADING", payload: false });
     message.success("Your sitter booked successfully");
   } catch (error) {
