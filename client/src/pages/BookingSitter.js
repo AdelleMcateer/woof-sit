@@ -1,4 +1,4 @@
-import { Col, Row, Divider, DatePicker, Checkbox, Modal } from "antd";
+import { Col, Row, Divider, DatePicker } from "antd";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
@@ -8,11 +8,16 @@ import moment from "moment";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 
+const { RangePicker } = DatePicker;
+
 function BookingSitter({ match }) {
   const { sitters } = useSelector((state) => state.sittersReducer);
   const { loading } = useSelector((state) => state.alertsReducer);
   const [sitter, setsitter] = useState({});
   const dispatch = useDispatch();
+  const [from, setFrom] = useState();
+  const [to, setTo] = useState();
+  const [totalHours, setTotalHours] = useState();
 
   useEffect(() => {
     if (sitters.length == 0) {
@@ -21,6 +26,14 @@ function BookingSitter({ match }) {
       setsitter(sitters.find((o) => o._id == match.params.sitterid));
     }
   }, [sitters]);
+
+  //Passing times to array
+  function selectTimeSlots(values) {
+    setFrom(moment(values[0]).format("MMM DD yyy HH:mm"));
+    setTo(moment(values[1]).format("MMM DD yyy HH:mm"));
+
+    setTotalHours(values[1].diff(values[0], "hours"));
+  }
 
   return (
     <DefaultLayout>
@@ -49,6 +62,16 @@ function BookingSitter({ match }) {
             <p>Dog Type : {sitter.dogType}</p>
             <p>Experience Level : {sitter.experienceLevel}</p>
           </div>
+
+          <Divider type="horizontal" dashed>
+            Choose Time Slot
+          </Divider>
+          <RangePicker
+            showTime={{ format: "HH:mm" }}
+            format="MMM-DD yyyy HH:mm"
+            onChange={selectTimeSlots}
+          />
+          <div> {totalHours}</div>
         </Col>
       </Row>
     </DefaultLayout>
