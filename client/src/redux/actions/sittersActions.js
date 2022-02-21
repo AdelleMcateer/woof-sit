@@ -40,7 +40,27 @@ export const editSitter = (reqObj) => async (dispatch) => {
     dispatch({ type: "LOADING", payload: false });
     message.success("Sitter details updated successfully");
     setTimeout(() => {
-      window.location.href = "/";
+      //window.location.href = "/";
+      //window.location.reload();
+      window.location.href = "/admin";
+    }, 500);
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "LOADING", payload: false });
+  }
+};
+
+export const deleteSitter = (reqObj) => async (dispatch) => {
+  dispatch({ type: "LOADING", payload: true });
+
+  try {
+    await axios.post("/api/sitters/deletesitter", reqObj);
+
+    dispatch({ type: "LOADING", payload: false });
+    message.success("Sitter details deleted successfully");
+    setTimeout(() => {
+      //window.location.reload();
+      window.location.href = "/admin";
     }, 500);
   } catch (error) {
     console.log(error);

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Booking = require("../models/bookingModel");
 const Sitter = require("../models/sitterModel");
-const stripe = require("stripe")("sk_test_m48bQT39bmCU83OAOy5HC1AL");
+const stripe = require("stripe")("sk_test_m48bQT39bmCU83OAOy5HC1AL"); //Remove and add to .env file
 const { v4: uuidv4 } = require("uuid");
 
 router.post("/booksitter", async (req, res) => {
