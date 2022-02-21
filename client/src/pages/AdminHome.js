@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Col, Row, Divider, DatePicker, Checkbox, Edit } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
-import { getAllSitters } from "../redux/actions/sittersActions";
+import { deleteSitter, getAllSitters } from "../redux/actions/sittersActions";
 import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import moment from "moment";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { Popconfirm, message } from "antd";
 
 function AdminHome() {
   const { sitters } = useSelector((state) => state.sittersReducer);
@@ -56,9 +57,18 @@ function AdminHome() {
                         style={{ color: "green", cursor: "pointer" }}
                       />
                     </Link>
-                    <DeleteOutlined
-                      style={{ color: "red", cursor: "pointer" }}
-                    />
+                    <Popconfirm
+                      title="Are you sure to delete this sitter?"
+                      onConfirm={() => {
+                        dispatch(deleteSitter({ sitterid: sitter._id }));
+                      }}
+                      okText="Yes"
+                      cancelText="No"
+                    >
+                      <DeleteOutlined
+                        style={{ color: "red", cursor: "pointer" }}
+                      />
+                    </Popconfirm>
                   </div>
                 </div>
               </div>

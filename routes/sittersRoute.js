@@ -39,4 +39,14 @@ router.post("/editsitter", async (req, res) => {
     return res.status(400).json(error);
   }
 });
+
+router.post("/deletesitter", async (req, res) => {
+  try {
+    await Sitter.findOneAndDelete({ _id: req.body.sitterid });
+
+    res.send("Sitter deleted successfully");
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+});
 module.exports = router;
