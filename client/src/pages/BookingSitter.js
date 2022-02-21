@@ -25,6 +25,7 @@ function BookingSitter({ match }) {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
+    dispatch(getAllSitters());
     if (sitters.length == 0) {
       dispatch(getAllSitters());
     } else {
