@@ -5,7 +5,7 @@ import { Col, Row, Form, Input } from "antd";
 import {
   addSitter,
   getAllSitters,
-  editCar,
+  editSitter,
 } from "../redux/actions/sittersActions";
 import Spinner from "../components/Spinner";
 
@@ -29,7 +29,7 @@ function EditSitter({ match }) {
   function onFinish(values) {
     values._id = sitter._id;
 
-    dispatch(EditSitter(values));
+    dispatch(editSitter(values));
     console.log(values);
   }
 

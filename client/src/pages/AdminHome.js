@@ -24,6 +24,16 @@ function AdminHome() {
 
   return (
     <DefaultLayout>
+      <Row justify="center" gutter={16} className="mt-2">
+        <Col lg={20} sm={24}>
+          <div className="text-right">
+            <button className="btn1">
+              <a href="/addsitter">ADD SITTER</a>
+            </button>
+          </div>
+        </Col>
+      </Row>
+
       {loading == true && <Spinner />}
 
       <Row justify="center" gutter={16}>
@@ -36,7 +46,7 @@ function AdminHome() {
                 <div className="sitter-content d-flex align-items-center justify-content-between">
                   <div className="text-left pl-2">
                     <p>{sitter.name}</p>
-                    <p> Rate Per Hour {sitter.ratePerHour} /-</p>
+                    <p> Rate Per Hour €{sitter.ratePerHour} /-</p>
                   </div>
 
                   <div className="mr-4">

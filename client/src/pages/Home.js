@@ -72,7 +72,7 @@ function Home() {
                 <div className="sitter-content d-flex align-items-center justify-content-between">
                   <div className="text-left pl-2">
                     <p>{sitter.name}</p>
-                    <p> Rate Per Hour {sitter.ratePerHour} /-</p>
+                    <p> Rate Per Hour € {sitter.ratePerHour} </p>
                   </div>
 
                   <div>

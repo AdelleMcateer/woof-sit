@@ -21,4 +21,22 @@ router.post("/addsitter", async (req, res) => {
     return res.status(400).json(error);
   }
 });
+
+router.post("/editsitter", async (req, res) => {
+  //Adding manual properties as may impact booked time slots if MongoDb findOne() used
+  try {
+    const sitter = await Sitter.findOne({ _id: req.body._id });
+    sitter.name = req.body.name;
+    sitter.image = req.body.image;
+    sitter.ratePerHour = req.body.ratePerHour;
+    sitter.experienceLevel = req.body.experienceLevel;
+    sitter.dogType = req.body.dogType;
+
+    await sitter.save();
+
+    res.send("Sitter details updatded successfully");
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+});
 module.exports = router;
