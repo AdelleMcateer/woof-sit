@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import BookingSitter from "./pages/BookingSitter";
+import UserBookings from "./pages/UserBookings";
 import "antd/dist/antd.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route path="/booking/:sitterid" exact component={BookingSitter} />
+        <Route path="/userbookings" exact component={UserBookings} />
       </BrowserRouter>
     </div>
   );

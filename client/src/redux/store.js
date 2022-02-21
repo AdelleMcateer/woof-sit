@@ -3,12 +3,14 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { alertsReducer } from "./reducers/alertsReducer";
 import { sittersReducer } from "./reducers/sittersReducer";
+import { bookingsReducer } from "./reducers/bookingsReducer";
 
 const composeEnhancers = composeWithDevTools({});
 
 const rootReducer = combineReducers({
   sittersReducer,
   alertsReducer,
+  bookingsReducer,
 });
 
 const store = createStore(

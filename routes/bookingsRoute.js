@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Booking = require("../models/bookingModel");
 const Sitter = require("../models/sitterModel");
-const stripe = require("stripe")("my_PRIVATE_stripekey");
+const stripe = require("stripe")("sk_test_m48bQT39bmCU83OAOy5HC1AL");
 const { v4: uuidv4 } = require("uuid");
 
 router.post("/booksitter", async (req, res) => {
@@ -40,6 +40,15 @@ router.post("/booksitter", async (req, res) => {
     }
   } catch (error) {
     console.log(error);
+    return res.status(400).json(error);
+  }
+});
+
+router.get("/getallbookings", async (req, res) => {
+  try {
+    const bookings = await Booking.find().populate("sitter");
+    res.send(bookings);
+  } catch (error) {
     return res.status(400).json(error);
   }
 });

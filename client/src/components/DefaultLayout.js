@@ -1,15 +1,16 @@
 import React from "react";
 import { Menu, Dropdown, Button, Space, Row, Col } from "antd";
+import { Link } from "react-router-dom";
 
 function DefaultLayout(props) {
   const user = JSON.parse(localStorage.getItem("user"));
   const menu = (
     <Menu>
       <Menu.Item>
-        <a href="https://www.antgroup.com">Home</a>
+        <a href="/">Home</a>
       </Menu.Item>
       <Menu.Item>
-        <a href="https://www.antgroup.com">Bookings</a>
+        <a href="/userbookings">Bookings</a>
       </Menu.Item>
       <Menu.Item>
         <a href="https://www.aliyun.com">Profile</a>
@@ -31,7 +32,13 @@ function DefaultLayout(props) {
         <Row gutter={16} justify="center">
           <Col lg={20} sm={24} xs={24}>
             <div className="d-flex justify-content-between">
-              <h1>WoofSit</h1>
+              <h1>
+                <b>
+                  <Link to="/" style={{ color: "orangered" }}>
+                    WoofSit
+                  </Link>
+                </b>
+              </h1>
 
               <Dropdown overlay={menu} placement="bottomCenter">
                 <Button>{user.username}</Button>
