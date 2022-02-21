@@ -18,7 +18,8 @@ export const addSitter = (reqObj) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-    await axios.postet("/api/sitters/addsitter", reqObj);
+    await axios.post("/api/sitters/addsitter", reqObj);
+
     dispatch({ type: "LOADING", payload: false });
     message.success("New sitter added successfully");
     setTimeout(() => {
