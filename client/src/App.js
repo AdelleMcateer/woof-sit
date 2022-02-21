@@ -8,6 +8,8 @@ import BookingSitter from "./pages/BookingSitter";
 import UserBookings from "./pages/UserBookings";
 import "antd/dist/antd.css";
 import AddSitter from "./pages/AddSitter";
+import AdminHome from "./pages/AdminHome";
+import EditSitter from "./pages/EditSitter";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/booking/:sitterid" exact component={BookingSitter} />
         <Route path="/userbookings" exact component={UserBookings} />
         <Route path="/addsitter" exact component={AddSitter} />
+        <Route path="/editsitter/:sitterid" exact component={EditSitter} />
+        <Route path="/admin" exact component={AdminHome} />
       </BrowserRouter>
     </div>
   );
