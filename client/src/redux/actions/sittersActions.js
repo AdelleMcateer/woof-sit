@@ -13,3 +13,19 @@ export const getAllSitters = () => async (dispatch) => {
     dispatch({ type: "LOADING", payload: false });
   }
 };
+
+export const addSitter = (reqObj) => async (dispatch) => {
+  dispatch({ type: "LOADING", payload: true });
+
+  try {
+    await axios.postet("/api/sitters/addsitter", reqObj);
+    dispatch({ type: "LOADING", payload: false });
+    message.success("New sitter added successfully");
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 500);
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "LOADING", payload: false });
+  }
+};

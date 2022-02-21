@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import BookingSitter from "./pages/BookingSitter";
 import UserBookings from "./pages/UserBookings";
 import "antd/dist/antd.css";
+import AddSitter from "./pages/AddSitter";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/register" exact component={Register} />
         <Route path="/booking/:sitterid" exact component={BookingSitter} />
         <Route path="/userbookings" exact component={UserBookings} />
+        <Route path="/addsitter" exact component={AddSitter} />
       </BrowserRouter>
     </div>
   );
