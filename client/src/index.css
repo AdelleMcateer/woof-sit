@@ -139,3 +139,6 @@ svg {
 }
 .anticon {
 }
+a {
+  color: orangered !important;
+}

@@ -52,12 +52,12 @@ function Home() {
     <DefaultLayout>
       <Row className="mt-3" justify="center">
         <Col lg={20} sm={24} className="d-flex justify-content-left">
-          <h3 color="orangered">Book a Pet Sitter</h3>
-        </Col>
-      </Row>
-
-      <Row className="mt-3" justify="center">
-        <Col lg={20} sm={24} className="d-flex justify-content-left">
+          <Row>
+            {" "}
+            <div className="d-flex justify-content-between align items-center">
+              <h3 className="mt-1 mr-2">Book a Pet Sitter</h3>
+            </div>
+          </Row>
           <RangePicker
             showTime={{ format: "HH:mm" }}
             format="MMM DD yyyy HH:mm"
@@ -78,7 +78,7 @@ function Home() {
                 <div className="sitter-content d-flex align-items-center justify-content-between">
                   <div className="text-left pl-2">
                     <p>{sitter.name}</p>
-                    <p> Rate Per Hour € {sitter.ratePerHour} </p>
+                    <p> Rent Per Hour {sitter.ratePerHour} /-</p>
                   </div>
 
                   <div>
