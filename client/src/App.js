@@ -15,22 +15,25 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <ProtectedRoute path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
-        <ProtectedRoute
-          path="/booking/:sitterid"
-          exact
-          component={BookingSitter}
-        />
-        <ProtectedRoute path="/userbookings" exact component={UserBookings} />
-        <ProtectedRoute path="/addsitter" exact component={AddSitter} />
-        <ProtectedRoute
-          path="/editsitter/:sitterid"
-          exact
-          component={EditSitter}
-        />
-        <ProtectedRoute path="/admin" exact component={AdminHome} />
+        <BrowserRouter>
+          <Route path="/" exact component={Home} />
+
+          <ProtectedRoute
+            path="/booking/:sitterid"
+            exact
+            component={BookingSitter}
+          />
+          <ProtectedRoute path="/userbookings" exact component={UserBookings} />
+          <ProtectedRoute path="/addsitter" exact component={AddSitter} />
+          <ProtectedRoute
+            path="/editsitter/:sitterid"
+            exact
+            component={EditSitter}
+          />
+          <ProtectedRoute path="/admin" exact component={AdminHome} />
+        </BrowserRouter>{" "}
       </BrowserRouter>
     </div>
   );
