@@ -15,16 +15,8 @@
     "start": "node server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AdelleMcateer/woof-day-care.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AdelleMcateer/woof-day-care/issues"
-  },
-  "homepage": "https://github.com/AdelleMcateer/woof-day-care#readme",
   "dependencies": {
     "express": "^4.17.2",
     "mongoose": "^6.2.1",
