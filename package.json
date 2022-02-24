@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/AdelleMcateer/woof-day-care/issues"
   },
-  "homepage": "https://github.com/AdelleMcateer/woof-day-care#readme",
+  "homepage": "/",
   "dependencies": {
     "express": "^4.17.2",
     "mongoose": "^6.2.1",
