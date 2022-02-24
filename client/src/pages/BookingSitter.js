@@ -81,7 +81,7 @@ function BookingSitter({ match }) {
 
         <Col lg={10} sm={24} xs={24} className="text-right">
           <Divider type="horizontal" dashed>
-            Car Info
+            Pet Sitter Info
           </Divider>
           <div style={{ textAlign: "right" }}>
             <p>{sitter.name}</p>
