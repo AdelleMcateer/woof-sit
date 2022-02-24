@@ -19,8 +19,8 @@ router.post("/login", async (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
-    const newUser = new User(req.body);
-    await newUser.save();
+    const newuser = new User(req.body);
+    await newuser.save();
     res.send("User registered successfully");
   } catch (error) {
     return res.status(400).json(error);
