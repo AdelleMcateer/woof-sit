@@ -4,16 +4,19 @@ const port = process.env.PORT || 5000;
 const dbConnection = require("./db");
 app.use(express.json());
 
+const path = require("path");
+
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/build")));
+  app.use("/", express.static(path.join(__dirname, "client/build")));
 }
 
 app.use("/api/sitters/", require("./routes/sittersRoute"));
 app.use("/api/users/", require("./routes/usersRoute"));
 app.use("/api/bookings/", require("./routes/bookingsRoute"));
+app.get("/", (req, res) => res.send("Hello World!"));
 
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+app.get("*", function (req, res) {
+  res.sendFile(path.resolve(__dirname, "client/build/index.html"));
 });
 
 /*const path = require("path");
@@ -46,8 +49,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.json({ error: err });
 });
-
-app.get("/", (req, res) => res.send("Hello World!"));
 
 app.listen(port, () => console.log(`Node JS Server Started in Port ${port}`));
 
