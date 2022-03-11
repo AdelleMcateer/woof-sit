@@ -14,6 +14,7 @@ const sitterSchema = new mongoose.Schema(
     ],
 
     ratePerHour: { type: Number, required: true },
+    county: { type: String, required: true },
   },
   { timestamps: true }
 );

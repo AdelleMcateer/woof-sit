@@ -86,7 +86,8 @@ function BookingSitter({ match }) {
           </Divider>
           <div style={{ textAlign: "right" }}>
             <p>{sitter.name}</p>
-            <p>{sitter.ratePerHour} Rate Per hour /-</p>
+            <p> County : {sitter.county} </p>
+            <p>Rate Per hour €{sitter.ratePerHour} </p>
             <p>Dog Type : {sitter.dogType}</p>
             <p>Experience Level : {sitter.experienceLevel}</p>
           </div>

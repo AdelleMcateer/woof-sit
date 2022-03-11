@@ -10,6 +10,9 @@ import "antd/dist/antd.css";
 import AddSitter from "./pages/AddSitter";
 import AdminHome from "./pages/AdminHome";
 import EditSitter from "./pages/EditSitter";
+import SitterHome from "./pages/SitterHome";
+import DogHome from "./pages/DogHome";
+import Profile from "./pages/Profile";
 
 function App() {
 
@@ -18,14 +21,18 @@ function App() {
       <BrowserRouter>
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
+        <Route path="/" exact component={Home} />
         <BrowserRouter>
-          <Route path="/" exact component={Home} />
+        
+          <Route path="/sitterhome" exact component={SitterHome} />
+          <Route path="/doghome" exact component={DogHome} />
 
           <Route path="/booking/:sitterid" exact component={BookingSitter} />
           <Route path="/userbookings" exact component={UserBookings} />
           <Route path="/addsitter" exact component={AddSitter} />
           <Route path="/editsitter/:sitterid" exact component={EditSitter} />
           <Route path="/admin" exact component={AdminHome} />
+          <Route path="/profile" exact component={Profile} />
         </BrowserRouter>{" "}
       </BrowserRouter>
     </div>

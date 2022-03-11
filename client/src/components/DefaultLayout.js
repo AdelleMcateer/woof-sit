@@ -3,25 +3,29 @@ import { Menu, Dropdown, Button, Space, Row, Col } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  UserOutlined 
-} from '@ant-design/icons';
+  UserOutlined,
+  ProfileOutlined,
+} from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 function DefaultLayout(props) {
   const user = JSON.parse(localStorage.getItem("user"));
   const menu = (
-    <Menu 
-    style={{ width: 156 }}
-    mode="inline">
+    <Menu style={{ width: 160 }} mode="inline">
       <Menu.Item>
-        <a href="/">Home</a>
+        <UserOutlined style={{ color: "orangered" }}></UserOutlined>
+        <a href="/profile">Edit Profile</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="/sitterhome">Book a Pet Sitter</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="/home">Book a Pet</a>
       </Menu.Item>
       <Menu.Item>
         <a href="/userbookings">Bookings</a>
       </Menu.Item>
-      <Menu.Item>
-        <a href="/profile">Profile</a>
-      </Menu.Item>
+
       <Menu.Item>
         <a href="/admin">Admin</a>
       </Menu.Item>
@@ -51,7 +55,12 @@ function DefaultLayout(props) {
               </h1>
 
               <Dropdown overlay={menu} placement="bottomCenter">
-                <MenuUnfoldOutlined>{user.username}</MenuUnfoldOutlined>
+                <MenuUnfoldOutlined
+                  style={{ color: "orangered" }}
+                  mode="inline"
+                >
+                  {user.username}
+                </MenuUnfoldOutlined>
               </Dropdown>
             </div>
           </Col>
