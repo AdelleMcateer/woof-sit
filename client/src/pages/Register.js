@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Form, Input } from "antd";
+import { Row, Col, Form, Input, Radio } from "antd";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userRegister } from "../redux/actions/userActions";
@@ -37,6 +37,10 @@ function Register() {
             onFinish={onFinish}
           >
             <h1>Register</h1>
+            <Radio.Group>
+              <Radio value={1}>Pet Owner</Radio>
+              <Radio value={2}>Pet Sitter</Radio>
+            </Radio.Group>
             <hr />
             <Form.Item
               name="username"

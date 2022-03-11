@@ -20,7 +20,7 @@ function DefaultLayout(props) {
         <a href="/sitterhome">Book a Pet Sitter</a>
       </Menu.Item>
       <Menu.Item>
-        <a href="/home">Book a Pet</a>
+        <a href="/pethome">Book a Pet</a>
       </Menu.Item>
       <Menu.Item>
         <a href="/userbookings">Bookings</a>

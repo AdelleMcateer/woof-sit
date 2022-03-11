@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use("/api/sitters/", require("./routes/sittersRoute"));
+app.use("/api/pets/", require("./routes/petsRoute"));
 app.use("/api/users/", require("./routes/usersRoute"));
 app.use("/api/bookings/", require("./routes/bookingsRoute"));
 app.get("/", (req, res) => res.send("Hello World!"));

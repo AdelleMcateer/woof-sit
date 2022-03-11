@@ -31,3 +31,21 @@ export const getAllBookings = () => async (dispatch) => {
     dispatch({ type: "LOADING", payload: false });
   }
 };
+
+export const bookPet = (reqObj) => async (dispatch) => {
+  dispatch({ type: "LOADING", payload: true });
+
+  try {
+    await axios.post("/api/bookings/bookpet", reqObj);
+
+    dispatch({ type: "LOADING", payload: false });
+    message.success("Your pet booked successfully");
+    setTimeout(() => {
+      window.location.href = "/userbookings";
+    }, 500);
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: "LOADING", payload: false });
+    message.error("Something went wrong, please try again later");
+  }
+};
