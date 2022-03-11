@@ -1,11 +1,18 @@
 import React from "react";
 import { Menu, Dropdown, Button, Space, Row, Col } from "antd";
+import {
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  UserOutlined 
+} from '@ant-design/icons';
 import { Link } from "react-router-dom";
 
 function DefaultLayout(props) {
   const user = JSON.parse(localStorage.getItem("user"));
   const menu = (
-    <Menu>
+    <Menu 
+    style={{ width: 156 }}
+    mode="inline">
       <Menu.Item>
         <a href="/">Home</a>
       </Menu.Item>
@@ -44,7 +51,7 @@ function DefaultLayout(props) {
               </h1>
 
               <Dropdown overlay={menu} placement="bottomCenter">
-                <Button>{user.username}</Button>
+                <MenuUnfoldOutlined>{user.username}</MenuUnfoldOutlined>
               </Dropdown>
             </div>
           </Col>

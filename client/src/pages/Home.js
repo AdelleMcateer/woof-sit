@@ -86,8 +86,10 @@ function Home() {
                       <Link to={`/booking/${sitter._id}`}>Book Now</Link>
                     </button>
                   </div>
+            
                 </div>
               </div>
+              
             </Col>
           );
         })}

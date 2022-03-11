@@ -1,0 +1,6 @@
+###
+
+GET http://localhost:5000/api/sitters/getallsitters?page=1&limit=3
+
+###
+GET http://localhost:5000/api/sitters/getallsitters
