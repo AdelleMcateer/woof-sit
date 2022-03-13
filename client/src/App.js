@@ -21,7 +21,7 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route path="/" exact component={Home} />
-        <BrowserRouter>
+  
           <Route path="/sitterhome" exact component={SitterHome} />
           <Route path="/pethome" exact component={PetHome} />
 
@@ -33,7 +33,7 @@ function App() {
           <Route path="/editsitter/:sitterid" exact component={EditSitter} />
           <Route path="/admin" exact component={AdminHome} />
           <Route path="/profile" exact component={Profile} />
-        </BrowserRouter>{" "}
+      
       </BrowserRouter>
     </div>
   );

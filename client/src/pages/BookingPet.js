@@ -24,7 +24,6 @@ function BookingPet({ match }) {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    dispatch(getAllPets());
     if (pets.length == 0) {
       dispatch(getAllPets());
     } else {
@@ -32,10 +31,11 @@ function BookingPet({ match }) {
     }
   }, [pets]);
 
+
   useEffect(() => {
     setTotalAmount(totalHours * pet.rateOfferedPerHour);
-    if (pet) {
-      setTotalAmount(totalAmount + 30 * totalHours);
+    if (food) {
+      setTotalAmount(totalAmount + 1 * totalHours);
     }
   }, [food, totalHours]);
 
@@ -134,7 +134,7 @@ function BookingPet({ match }) {
               <StripeCheckout
                 shippingAddress
                 token={onToken}
-                currency="inr"
+                currency="eur"
                 amount={totalAmount * 100}
                 stripeKey="pk_test_51IYnC0SIR2AbPxU0TMStZwFUoaDZle9yXVygpVIzg36LdpO8aSG8B9j2C0AikiQw2YyCI8n4faFYQI5uG3Nk5EGQ00lCfjXYvZ"
               >

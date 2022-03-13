@@ -24,7 +24,6 @@ function BookingSitter({ match }) {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    dispatch(getAllSitters());
     if (sitters.length == 0) {
       dispatch(getAllSitters());
     } else {
@@ -34,10 +33,11 @@ function BookingSitter({ match }) {
 
   useEffect(() => {
     setTotalAmount(totalHours * sitter.ratePerHour);
-    if (sitter) {
-      setTotalAmount(totalAmount + 30 * totalHours);
+    if (food) {
+      setTotalAmount(totalAmount + 1 * totalHours);
     }
   }, [food, totalHours]);
+
 
   function selectTimeSlots(values) {
     setFrom(moment(values[0]).format("MMM DD yyyy HH:mm"));
@@ -134,7 +134,7 @@ function BookingSitter({ match }) {
               <StripeCheckout
                 shippingAddress
                 token={onToken}
-                currency="inr"
+                currency="eur"
                 amount={totalAmount * 100}
                 stripeKey="pk_test_51IYnC0SIR2AbPxU0TMStZwFUoaDZle9yXVygpVIzg36LdpO8aSG8B9j2C0AikiQw2YyCI8n4faFYQI5uG3Nk5EGQ00lCfjXYvZ"
               >
