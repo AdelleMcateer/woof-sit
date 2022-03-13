@@ -131,15 +131,10 @@ function BookingPet({ match }) {
 
               <h3>Total Amount : {totalAmount}</h3>
 
-              <StripeCheckout
-                shippingAddress
-                token={onToken}
-                currency="eur"
-                amount={totalAmount * 100}
-                stripeKey="pk_test_51IYnC0SIR2AbPxU0TMStZwFUoaDZle9yXVygpVIzg36LdpO8aSG8B9j2C0AikiQw2YyCI8n4faFYQI5uG3Nk5EGQ00lCfjXYvZ"
-              >
+          
                 <button className="btn1">Book Now</button>
-              </StripeCheckout>
+                <p>** Payment to be handled offline between Owner and Sitter **</p>
+            
             </div>
           )}
         </Col>
