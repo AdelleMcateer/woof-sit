@@ -38,7 +38,6 @@ function BookingSitter({ match }) {
     }
   }, [food, totalHours]);
 
-
   function selectTimeSlots(values) {
     setFrom(moment(values[0]).format("MMM DD yyyy HH:mm"));
     setTo(moment(values[1]).format("MMM DD yyyy HH:mm"));
