@@ -15,7 +15,6 @@ import PetHome from "./pages/PetHome";
 import Profile from "./pages/Profile";
 import BookingPet from "./pages/BookingPet";
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -23,13 +22,12 @@ function App() {
         <Route path="/register" exact component={Register} />
         <Route path="/" exact component={Home} />
         <BrowserRouter>
-        
           <Route path="/sitterhome" exact component={SitterHome} />
           <Route path="/pethome" exact component={PetHome} />
 
           <Route path="/booking/:sitterid" exact component={BookingSitter} />
           <Route path="/bookingpet/:petid" exact component={BookingPet} />
-          
+
           <Route path="/userbookings" exact component={UserBookings} />
           <Route path="/addsitter" exact component={AddSitter} />
           <Route path="/editsitter/:sitterid" exact component={EditSitter} />
