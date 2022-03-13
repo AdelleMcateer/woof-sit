@@ -31,7 +31,6 @@ function BookingPet({ match }) {
     }
   }, [pets]);
 
-
   useEffect(() => {
     setTotalAmount(totalHours * pet.rateOfferedPerHour);
     if (food) {
@@ -44,6 +43,21 @@ function BookingPet({ match }) {
     setTo(moment(values[1]).format("MMM DD yyyy HH:mm"));
 
     setTotalHours(values[1].diff(values[0], "hours"));
+  }
+
+  function bookNow() {
+    const reqObj = {
+      user: JSON.parse(localStorage.getItem("user"))._id,
+      pet: pet._id,
+      totalHours,
+      totalAmount,
+      foodRequired : food,
+      bookedTimeSlots : {
+        from,
+        to
+      }
+    };
+    dispatch(bookPet(reqObj))
   }
 
   function onToken(token) {
@@ -131,10 +145,12 @@ function BookingPet({ match }) {
 
               <h3>Total Amount : {totalAmount}</h3>
 
-          
-                <button className="btn1">Book Now</button>
-                <p>** Payment to be handled offline between Owner and Sitter **</p>
-            
+              <button className="btn1" onClick={bookNow}>
+                Book Now
+              </button>
+              <p>
+                ** Payment to be handled offline between Owner and Sitter **
+              </p>
             </div>
           )}
         </Col>
