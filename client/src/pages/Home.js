@@ -22,26 +22,25 @@ function Home() {
             data-aos-duration="1500"
             src="https://cdn.pixabay.com/photo/2019/04/10/23/51/dog-4118585_960_720.jpg"
           ></img>
-          <h1 className="login-logo">Welcome to WoofSit</h1>
-          <h2>Connect with Pet Sitters and Pet Owners in your area </h2>
-
-          <div className="">
-            <p>Welcome to WoofSit</p>
-            <p>Connect with Pet Sitters and Pet Owners in your are </p>
-            <p>Signup as a Pet Sitter</p>
-            <p>Signup as a Pet Owner</p>
-
-            <Link to="/register">Click here to Register</Link>
+          <h1 className="login-logo">WoofSit</h1>
+        </Col>
+        <Col lg={8} className="text-left p-5">
+          <Form layout="vertical" className="login-form p-5">
+            <h1>Welcome to WoofSit</h1>
+            <hr />
+            <Form.Item label="Find Sitters and Owners in your area!"></Form.Item>
+        
+   
+            <Form.Item label="For the safety of our pets and owners please register to access more!"></Form.Item>
+            <br />
+            <Link to="/register">Click here to register</Link>
+            <hr />
             <div>
               <br />
-              <p>Already have an account</p>
-              <Link to="/login">Click here to Login</Link>
+              <h1>Testimonials</h1>
             </div>
-            <div>
-              <br />
-              <p>Testimonials</p>
-            </div>
-          </div>
+          </Form>
+        
         </Col>
       </Row>
     </div>

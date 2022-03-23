@@ -3,3 +3,15 @@
 GET http://localhost:5000/api/sitters/getallsitters
 
 ###
+
+GET http://localhost:5000/api/bookings/getallbookings
+
+###
+
+###
+
+GET http://localhost:5000/api/pets/getallpets
+
+###
+
+

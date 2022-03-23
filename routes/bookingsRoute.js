@@ -16,7 +16,7 @@ router.post("/booksitter", async (req, res) => {
     const payment = await stripe.charges.create(
       {
         amount: req.body.totalAmount * 100,
-        currency: "eur",
+        currency: "EUR",
         customer: customer.id,
         receipt_email: token.email,
       },

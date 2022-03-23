@@ -14,7 +14,7 @@ app.use("/api/sitters/", require("./routes/sittersRoute"));
 app.use("/api/pets/", require("./routes/petsRoute"));
 app.use("/api/users/", require("./routes/usersRoute"));
 app.use("/api/bookings/", require("./routes/bookingsRoute"));
-app.use("/api/petbookings/bookpet/", require("./routes/petBookingsRoute"));
+app.use("/api/petbookings/", require("./routes/petBookingsRoute"));
 
 app.get("/", (req, res) => res.send("Hello World!"));
 

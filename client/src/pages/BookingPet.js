@@ -48,7 +48,7 @@ function BookingPet({ match }) {
   function bookNow() {
     const reqObj = {
       user: JSON.parse(localStorage.getItem("user"))._id,
-      name: pet._id,
+      pet: pet._id,
       totalHours,
       totalAmount,
       foodRequired : food,

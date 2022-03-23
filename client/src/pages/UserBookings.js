@@ -31,6 +31,7 @@ function UserBookings() {
                   <Col lg={6} sm={24}>
                     <p>
                       <b>{booking.sitter.name}</b>
+                      
                     </p>
                     <p>
                       Total Hours :<b> {booking.totalHours}</b>

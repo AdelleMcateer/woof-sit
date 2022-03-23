@@ -133,9 +133,9 @@ function BookingSitter({ match }) {
               <StripeCheckout
                 shippingAddress
                 token={onToken}
-                currency="eur"
+                currency="EUR"
                 amount={totalAmount * 100}
-                stripeKey="pk_test_51IYnC0SIR2AbPxU0TMStZwFUoaDZle9yXVygpVIzg36LdpO8aSG8B9j2C0AikiQw2YyCI8n4faFYQI5uG3Nk5EGQ00lCfjXYvZ"
+                stripeKey="pk_test_F1HiMvfTXtZ6JBs1Q8nzIfz7"
               >
                 <button className="btn1">Book Now</button>
               </StripeCheckout>
