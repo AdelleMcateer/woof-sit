@@ -5,7 +5,7 @@ import DefaultLayout from "../components/DefaultLayout";
 import Spinner from "../components/Spinner";
 import { getAllPets } from "../redux/actions/petsActions";
 import moment from "moment";
-import { bookPet } from "../redux/actions/bookingActions";
+import { bookPet } from "../redux/actions/petBookingActions";
 import StripeCheckout from "react-stripe-checkout";
 import AOS from "aos";
 
@@ -64,7 +64,7 @@ function BookingPet({ match }) {
     const reqObj = {
       token,
       user: JSON.parse(localStorage.getItem("user"))._id,
-      sitter: pet._id,
+      pet: pet._id,
       totalHours,
       totalAmount,
       foodRequired: food,

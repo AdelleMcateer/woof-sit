@@ -14,6 +14,8 @@ import SitterHome from "./pages/SitterHome";
 import PetHome from "./pages/PetHome";
 import Profile from "./pages/Profile";
 import BookingPet from "./pages/BookingPet";
+import UserPetBookings from "./pages/UserPetBookings";
+
 function App() {
   return (
     <div className="App">
@@ -30,6 +32,8 @@ function App() {
         
         
         <Route path="/userbookings" exact component={UserBookings} />
+        <Route path="/userpetbookings" exact component={UserPetBookings} />
+        
         <Route path="/addsitter" exact component={AddSitter} />
         <Route path="/editsitter/:sitterid" exact component={EditSitter} />
         <Route path="/admin" exact component={AdminHome} />

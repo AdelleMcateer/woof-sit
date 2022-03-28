@@ -1,67 +1,69 @@
 import React, { useEffect, useState } from "react";
 import DefaultLayout from "../components/DefaultLayout";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllBookings } from "../redux/actions/bookingActions";
-
+import { getAllPetBookings } from "../redux/actions/petBookingActions";
 import { Col, Row } from "antd";
 import moment from "moment";
 import Spinner from "../components/Spinner";
 
-function UserBookings() {
+function UserPetBookings() {
   const dispatch = useDispatch();
-  const { bookings } = useSelector((state) => state.bookingsReducer);
+  const { petbookings } = useSelector((state) => state.petBookingsReducer);
   const { loading } = useSelector((state) => state.alertsReducer);
   const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    dispatch(getAllBookings());
+    dispatch(getAllPetBookings());
   }, []);
 
   return (
     <DefaultLayout>
       {loading && <Spinner />}
-      <h3 className="text-center mt-2">My Bookings</h3>
+      <h3 className="text-center mt-2">My Pet Bookings</h3>
 
       <Row justify="center" gutter={16}>
         <Col lg={18} sm={24}>
-          {bookings
+          {petbookings
             .filter((o) => o.user == user._id)
-            .map((booking) => {
+            .map((petbooking) => {
               return (
                 <Row gutter={16} className="bs1 mt-3 text-left">
                   <Col lg={6} sm={24}>
                     <p>
-                      <b>{booking.sitter.name}</b>
+                      <b>{petbooking.pet.name}</b>
                     </p>
                     <p>
-                      Total Hours :<b> {booking.totalHours}</b>
+                      Total Hours :<b> {petbooking.totalHours}</b>
                     </p>
                     <p>
-                      Rate Per Hour :<b> {booking.sitter.ratePerHour}</b>
+                      Rate Offered Per Hour :<b> {petbooking.pet.rateOfferedPerHour}</b>
                     </p>
                     <p>
-                      Total Amount :<b> {booking.totalAmount}</b>
+                      Total Amount :<b> {petbooking.totalAmount}</b>
                     </p>
                   </Col>
                   <Col lg={12} sm={24}>
                     <p>
-                      Transaction Id :<b> {booking.transactionId}</b>
+                      Transaction Id :<b> {petbooking.transactionId}</b>
                     </p>
                     <p>
-                      From :<b> {booking.bookedTimeSlots.from}</b>
+                      From :<b> {petbooking.bookedTimeSlots.from}</b>
                     </p>
                     <p>
-                      To :<b> {booking.bookedTimeSlots.to}</b>
+                      To :<b> {petbooking.bookedTimeSlots.to}</b>
                     </p>
                     <p>
                       Booking Date :
-                      <b> {moment(booking.createdAt).format("MMM DD yyyy")}</b>
+                      <b>
+                        {" "}
+                        {moment(petbooking.createdAt).format("MMM DD yyyy")}
+                      </b>
                     </p>
                   </Col>
                   <Col lg={6} sm={24} className="text-right">
                     <img
                       style={{ borderRadius: 5 }}
-                      src={booking.sitter.image}
+                      src={petbooking.pet.image}
                       height="140px"
                       className="p-2"
                     />
@@ -75,4 +77,4 @@ function UserBookings() {
   );
 }
 
-export default UserBookings;
+export default UserPetBookings;

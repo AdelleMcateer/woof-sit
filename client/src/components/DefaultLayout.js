@@ -25,6 +25,9 @@ function DefaultLayout(props) {
       <Menu.Item>
         <a href="/userbookings">Bookings</a>
       </Menu.Item>
+      <Menu.Item>
+        <a href="/userpetbookings">Pet Bookings</a>
+      </Menu.Item>
 
       <Menu.Item>
         <a href="/admin">Admin</a>

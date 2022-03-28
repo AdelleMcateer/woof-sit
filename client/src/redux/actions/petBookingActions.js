@@ -1,16 +1,16 @@
 import { message } from "antd";
 import axios from "axios";
 
-export const bookSitter = (reqObj) => async (dispatch) => {
+export const bookPet = (reqObj) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-    await axios.post("/api/bookings/booksitter", reqObj);
+    await axios.post("/api/petbookings/bookpet", reqObj);
 
     dispatch({ type: "LOADING", payload: false });
-    message.success("Your sitter booked successfully");
+    message.success("Your pet booked successfully");
     setTimeout(() => {
-      window.location.href = "/userbookings";
+      window.location.href = "/userpetbookings";
     }, 500);
   } catch (error) {
     console.log(error);
@@ -19,22 +19,15 @@ export const bookSitter = (reqObj) => async (dispatch) => {
   }
 };
 
-export const getAllBookings = () => async (dispatch) => {
+export const getAllPetBookings = () => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-    const response = await axios.get("/api/bookings/getallbookings");
-    dispatch({ type: "GET_ALL_BOOKINGS", payload: response.data });
+    const response = await axios.get("/api/petbookings/getallpetbookings");
+    dispatch({ type: "GET_ALL_PET_BOOKINGS", payload: response.data });
     dispatch({ type: "LOADING", payload: false });
   } catch (error) {
     console.log(error);
     dispatch({ type: "LOADING", payload: false });
   }
 };
-
-
-
-
-
-
-
