@@ -32,11 +32,13 @@ function UserPetBookings() {
                     <p>
                       <b>{petbooking.pet.name}</b>
                     </p>
+                
                     <p>
                       Total Hours :<b> {petbooking.totalHours}</b>
                     </p>
                     <p>
-                      Rate Offered Per Hour :<b> {petbooking.pet.rateOfferedPerHour}</b>
+                      Rate Offered Per Hour :
+                      <b> {petbooking.pet.rateOfferedPerHour}</b>
                     </p>
                     <p>
                       Total Amount :<b> {petbooking.totalAmount}</b>
@@ -44,7 +46,7 @@ function UserPetBookings() {
                   </Col>
                   <Col lg={12} sm={24}>
                     <p>
-                      Transaction Id :<b> {petbooking.transactionId}</b>
+                      Transaction Id :<b> {petbooking.petTransactionId}</b>
                     </p>
                     <p>
                       From :<b> {petbooking.bookedTimeSlots.from}</b>

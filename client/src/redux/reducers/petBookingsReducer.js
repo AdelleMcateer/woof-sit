@@ -1,10 +1,11 @@
+
 const initialData = {
   petbookings: [],
 };
 
 export const petBookingsReducer = (state = initialData, action) => {
   switch (action.type) {
-    case "GET_ALL_PETS_BOOKINGS": {
+    case "GET_ALL_PET_BOOKINGS": {
       return {
         ...state,
         petbookings: action.payload,

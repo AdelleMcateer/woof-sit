@@ -11,7 +11,7 @@ const petBookingSchema = new mongoose.Schema(
     },
     totalHours: { type: Number },
     totalAmount: { type: Number },
-    transactionId: { type: String },
+    petTransactionId: { type: String },
     foodRequired: { type: Boolean },
   },
   { timestamps: true }

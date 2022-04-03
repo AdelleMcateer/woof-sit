@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import DefaultLayout from "../components/DefaultLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBookings } from "../redux/actions/bookingActions";
-
 import { Col, Row } from "antd";
 import moment from "moment";
 import Spinner from "../components/Spinner";

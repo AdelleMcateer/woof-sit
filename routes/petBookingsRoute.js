@@ -4,7 +4,7 @@ const router = express.Router();
 const Pet = require("../models/petModel");
 
 router.post("/bookpet", async (req, res) => {
-  req.body.transactionId = "1234";
+  req.body.petTransactionId = "1234";
   try {
     const newpetbooking = new PetBooking(req.body);
     await newpetbooking.save();
