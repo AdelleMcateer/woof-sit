@@ -143,7 +143,7 @@ function BookingPet({ match }) {
                 Food Required
               </Checkbox>
 
-              <h3>Total Amount : {totalAmount}</h3>
+              <h3>Total Amount : €{totalAmount}</h3>
 
               <button className="btn1" onClick={bookNow}>
                 Book Now

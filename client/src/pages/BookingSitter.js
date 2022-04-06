@@ -128,7 +128,7 @@ function BookingSitter({ match }) {
                 Food Required
               </Checkbox>
 
-              <h3>Total Amount : {totalAmount}</h3>
+              <h3>Total Amount : €{totalAmount}</h3>
 
               <StripeCheckout
                 shippingAddress
