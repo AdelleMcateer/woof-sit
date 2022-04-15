@@ -78,6 +78,7 @@ function PetHome() {
                 <div className="sitter-content d-flex align-items-center justify-content-between">
                   <div className="text-left pl-2">
                     <p>{pet.name}</p>
+                    <p>{pet.location}</p>
                     <p> Rent Per Hour €{pet.rateOfferedPerHour} </p>
                   </div>
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "engines": {
     "node": "14.15.4",
-    "npm" : "6.14.10"
+    "npm": "6.14.10"
   },
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -27,6 +27,7 @@
   "dependencies": {
     "express": "^4.17.2",
     "mongoose": "^6.2.1",
+    "ngrx-uml": "^1.0.2",
     "nodemon": "^2.0.15",
     "stripe": "^8.203.0",
     "uuid": "^8.3.2"
