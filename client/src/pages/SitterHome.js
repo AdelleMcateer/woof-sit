@@ -79,7 +79,7 @@ function SitterHome() {
                   <div className="text-left pl-2">
                     <p>{sitter.name}</p>
                     <p>{sitter.location}</p>
-                    <p> Rent Per Hour €{sitter.ratePerHour} </p>
+                    <p> Rate Per Hour €{sitter.ratePerHour} </p>
                   </div>
 
                   <div>

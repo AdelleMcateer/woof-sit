@@ -79,7 +79,7 @@ function PetHome() {
                   <div className="text-left pl-2">
                     <p>{pet.name}</p>
                     <p>{pet.location}</p>
-                    <p> Rent Per Hour €{pet.rateOfferedPerHour} </p>
+                    <p> Rate Per Hour €{pet.rateOfferedPerHour} </p>
                   </div>
 
                   <div>

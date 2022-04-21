@@ -51,7 +51,7 @@ function DefaultLayout(props) {
             <div className="d-flex justify-content-between">
               <h1>
                 <b>
-                  <Link to="/" style={{ color: "orangered" }}>
+                  <Link to="/sitterhome" style={{ color: "orangered" }}>
                     WoofSit
                   </Link>
                 </b>
